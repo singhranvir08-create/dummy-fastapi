@@ -89,6 +89,9 @@ def search_items(data: SearchQuery):
 # -----------------------
 # 10. Orders Search
 # -----------------------
+# -----------------------
+# 10. Orders Search
+# -----------------------
 @app.post("/api/orders/search")
 def search_order(data: dict):
     order_id = data.get("order_id")
@@ -101,8 +104,6 @@ def search_order(data: dict):
         }
 
     return {"error": "Order not found"}
-        ]
-    }
 
 # -----------------------
 # 11. Find Order ID
