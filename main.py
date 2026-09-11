@@ -89,12 +89,18 @@ def search_items(data: SearchQuery):
 # -----------------------
 # 10. Orders Search
 # -----------------------
-@app.post("/api/v1/orders/search")
-def search_orders(data: SearchQuery):
-    return {
-        "orders": [
-            {"order_id": "ORD123", "status": "shipped"},
-            {"order_id": "ORD124", "status": "processing"}
+@app.post("/api/orders/search")
+def search_order(data: dict):
+    order_id = data.get("order_id")
+
+    if order_id == "ONE810001":
+        return {
+            "order_id": "ONE810001",
+            "status": "shipped",
+            "customer": "Ranvir"
+        }
+
+    return {"error": "Order not found"}
         ]
     }
 
